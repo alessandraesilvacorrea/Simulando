@@ -1,0 +1,147 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Video Playlist</title>
+
+   <!-- Font Awesome CDN link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- Custom CSS file link  -->
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <header class="header">
+      <section class="flex">
+         <a href="playlist.html" class="logo"></a>
+         <a href="home.html" class="logo">
+            <div class="logo-container">
+               <img src="images/apple_logo.png" alt="Simulando" width="30" height="30">
+               <span>Simulando</span>
+            </div>
+         </a>
+
+         <form action="search.html" method="post" class="search-form">
+            <input type="text" name="search_box" required placeholder="pesquisa..." maxlength="100">
+            <button type="submit" class="fas fa-search"></button>
+         </form>
+         
+         <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="user-btn" class="oculto"></div>
+            <div id="toggle-btn" class="oculto"></div>
+         </div>
+      </section>
+
+      
+   </header>   
+
+   <!-- Sidebar -->
+<div class="side-bar" style="overflow-y: auto; max-height: 100vh;">
+   <!-- Conteúdo da Sidebar (Perfil, Menu, etc.) -->
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">João</h3>
+      <a href="profile.html" class="btn">Editar Perfil</a>
+   </div>
+   <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Início</span></a>
+      <a href="about.html"><i class="fas fa-question"></i><span>Sobre</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Categorias</span></a>
+      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>Minhas Simulações</span></a>
+      <a href="historicoavaliacaousuario.html"><i class="fas fa-history"></i><span>Histórico Avaliações</span></a>
+      <a href="login.html" class="option-btn">Sair</a>
+   </nav>
+</div>
+   
+   <main>
+       <div class="box-container">
+        
+         <div class="categories">
+            <a href="courses.html" class="category-button">Mecânica</a> <!-- Redireciona para a página de mec -->
+            <a href="courses_term.html" class="category-button">Termodinâmica</a> <!-- Redireciona para a página de Termodinâmica -->
+            <a href="courses_eletro.html" class="category-button">Eletromagnetismo</a> <!-- Redireciona para a página de Termodinâmica -->
+            <a href="courses_eletro.html" class="category-button">Óptica</a> <!-- Redireciona para a página de Termodinâmica -->
+         </div>
+           <div class="experiment-list">
+                <div class="experiment" id="Eletromagnetismo">
+                  <img src="images/eletrostatica.png" alt="">
+                   <div class="experiment-info">
+                       <h3>Eletrostática</h3>
+                       <p>eletrização por atrito, contato e indução</p>
+                   </div>
+                   <div class="experiment-progress">
+                    <span class="progress-bar" style="width: 0%;"></span>
+                    <span class="progress-percentage">0%</span>
+                    <i class="fas fa-lock"></i> <!-- Ícone de cadeado fechado -->
+                   </div>
+               </div>
+               <div class="experiment" id="Magnetismo">
+                  <img src="images/magnetismo.png" alt="">
+                  <div class="experiment-info">
+                      <h3>Magnetismo</h3>
+                      <p>campo magnético; eletroímã</p>
+                  </div>
+                  <div class="experiment-progress">
+                      <span class="progress-bar" style="width: 0%;"></span>
+                      <span class="progress-percentage">0%</span>
+                      <i class="fas fa-lock"></i> <!-- Ícone de cadeado fechado -->
+                       
+                  </div>
+               </div>
+
+               <div class="experiment" id="Eletrodinamica">
+                <img src="images/eletrodinamica.jpg" alt="">
+                <div class="experiment-info">
+                    <h3>Eletrodinamica</h3>
+                    <p>corrente elétrica; resistores; Leis de Ohm</p>
+                </div>
+                <div class="experiment-progress">
+                    <span class="progress-bar" style="width: 0%;"></span>
+                    <span class="progress-percentage">0%</span>
+                    <i class="fas fa-lock"></i> <!-- Ícone de cadeado fechado -->
+                     
+                </div>
+             </div>
+           </div>
+       </div>
+   </main>
+
+   <!-- Link para o JS -->
+   <script src="js/script.js"></script>
+
+   <style>
+      /* Estilo para o container de progresso */
+      .experiment-progress {
+          display: flex;
+          align-items: center;
+          gap: 8px; /* Espaço entre os elementos */
+      }
+
+      /* Estilo para o ícone de cadeado */
+      .lock-icon {
+          width: 15px; /* Tamanho ajustado do ícone */
+          height: 15px;
+          margin-left: 4px; /* Espaço entre o texto de porcentagem e o cadeado */
+      }
+
+      /* Estilo do botão de continuar */
+      .continue-btn {
+          padding: 4px 8px;
+          background-color: #f83513; /* Cor de fundo do botão */
+          color: white;
+          text-decoration: none;
+          border-radius: 4px;
+          font-size: 12px;
+          margin-left: 8px; /* Espaço entre o cadeado e o botão de continuar */
+      }
+
+      .continue-btn:hover {
+          background-color: #a4a5a4; /* Cor ao passar o mouse */
+      }
+   </style>
+</body>
+</html>
