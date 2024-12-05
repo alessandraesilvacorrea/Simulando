@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Simulação de Dinâmica - Força de Atrito</title>
+  <style>
+    /* Reset e estilo geral */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .header {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    #simulation {
+      flex: 2;
+      height: 400px;
+      background-color: #e9ecef;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .controls {
+      flex: 1;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .controls h2 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .control-group {
+      margin-bottom: 15px;
+    }
+
+    .control-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .control-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .info-box {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+    <header class="header">
+        <section class="flex">
+          <a href="index.html" class="logo">
+            <div class="logo-container">
+              <img src="images/apple_logo.png" alt="Simulando" width="30" height="30">
+              <span>Simulando</span>
+            </div>
+          </a>
+    
+          <div class="step-progress">
+            <div class="step active" id="step-1">
+                <span class="step-number">1</span>
+                <p>Teoria</p>
+            </div>
+            <div class="step active" id="step-2">
+                <span class="step-number">2</span>
+                <p>Simulação</p>
+            </div>
+            <div class="step" id="step-3">
+                <span class="step-number">3</span>
+                <p>Teste</p>
+            </div>
+            <div class="step" id="step-4">
+                <span class="step-number">4</span>
+                <p>Feedback</p>
+            </div>
+         </div>
+    
+         <div class="icons">
+            <div id="menu-btn" class="oculto"></div>
+            <div id="search-btn" class="oculto"></div>
+            <div id="user-btn" class="oculto"></div>
+            <div id="toggle-btn" class="oculto"></div>
+         </div>
+      </section>
+      </header>
+
+      <h1 class="heading">Simulação 2 - Dinâmica</h1>
+    
+
+  <div class="container">
+    <!-- Área de simulação -->
+    <div id="simulation"></div>
+
+    <!-- Controles -->
+    <div class="controls">
+      <h2>Configurações</h2>
+      <div class="control-group">
+        <label for="force">Força Aplicada (N)</label>
+        <input type="number" id="force" value="50" min="1">
+      </div>
+      <div class="control-group">
+        <label for="mass">Massa do Objeto (kg)</label>
+        <input type="number" id="mass" value="10" min="1">
+      </div>
+      <div class="control-group">
+        <label for="friction">Coeficiente de Atrito</label>
+        <input type="number" id="friction" value="0.1" min="0" step="0.01">
+      </div>
+      <button class="button" id="startButton">Iniciar Simulação</button>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h2>Sobre a Simulação</h2>
+    <p>
+      Nesta simulação, explore o efeito da força de atrito no movimento de um objeto. 
+      O atrito é calculado como \( F_{atrito} = \mu \cdot F_{normal} \), onde \( \mu \) é o coeficiente de atrito.
+    </p>
+    <p>
+      Ajuste os valores e clique em "Iniciar Simulação" para observar como o objeto se comporta sob diferentes condições.
+    </p>
+  </div>
+
+
+   <!-- Botão para próximo conteúdo -->
+   <div class="next-content">
+    <a href="simud1.html" class="btn">Anterior</a>
+     <a href="form2.html" class="btn">Próximo </a>
+  </div>
+</div> 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+  <script>
+    const { Engine, Render, Runner, World, Bodies, Body } = Matter;
+
+    // Configuração do motor físico
+    const engine = Engine.create();
+    const render = Render.create({
+      element: document.getElementById('simulation'),
+      engine: engine,
+      options: {
+        width: 600,
+        height: 400,
+        wireframes: false,
+        background: '#e9ecef',
+      },
+    });
+
+    Render.run(render);
+    const runner = Runner.create();
+    Runner.run(runner, engine);
+
+    // Criando o solo e o objeto
+    const ground = Bodies.rectangle(300, 380, 600, 40, { isStatic: true, render: { fillStyle: '#444' } });
+    const object = Bodies.rectangle(100, 350, 50, 50, { render: { fillStyle: 'blue' } });
+
+    World.add(engine.world, [ground, object]);
+
+    // Iniciar simulação
+    const startSimulation = () => {
+      const forceInput = parseFloat(document.getElementById('force').value);
+      const massInput = parseFloat(document.getElementById('mass').value);
+      const frictionInput = parseFloat(document.getElementById('friction').value);
+
+      // Cálculos físicos
+      const normalForce = massInput * 9.8; // Peso do objeto
+      const frictionForce = frictionInput * normalForce;
+      const netForce = forceInput - frictionForce;
+      const acceleration = netForce / massInput;
+
+      // Aplicar força ao objeto
+      Body.setVelocity(object, { x: acceleration / 10, y: 0 });
+    };
+
+    document.getElementById('startButton').addEventListener('click', startSimulation);
+  </script>
+</body>
+</html>

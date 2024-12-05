@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Minhas Simulações</title>
+
+   <!-- Link para o Font Awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- Link para o CSS personalizado -->
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+   <section class="flex">
+      <a href="index.html" class="logo">
+         <div class="logo-container">
+            <img src="images/apple_logo.png" alt="Simulando" width="30" height="30">
+            <span>Simulando</span>
+         </div>
+      </a>
+
+      <form action="search.html" method="post" class="search-form">
+         <input type="text" name="search_box" required placeholder="pesquisa..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+      
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="search-btn" class="fas fa-search"></div>
+         <div id="user-btn" class="oculto"></div>
+         <div id="toggle-btn" class="oculto"></div>
+      </div>
+   </section>
+</header>
+
+<!-- Sidebar -->
+<div class="side-bar" style="overflow-y: auto; max-height: 100vh;">
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="" id="profile-img-teachers">
+      <h3 class="name">João</h3>
+      <a href="profile.html" class="btn">Editar Perfil</a>
+   </div>
+   <nav class="navbar">
+      <a href="index.html"><i class="fas fa-home"></i><span>Início</span></a>
+      <a href="about.html"><i class="fas fa-question"></i><span>Sobre</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Categorias</span></a>
+      <a href="teachers.html" class="active"><i class="fas fa-chalkboard-user"></i><span>Minhas Simulações</span></a>
+      <a href="historicoavaliacaousuario.html"><i class="fas fa-history"></i><span>Histórico Avaliações</span></a>
+      
+   </nav>
+</div>
+
+<section class="courses home-grid">
+   <h1 class="heading">Minhas Simulações</h1>
+   <div class="box-container">
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Simulação 1</h3>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/simulacao1.jpg" alt="Simulação 1">
+         </div>
+         <a href="index1.html" class="inline-btn">Acessar Simulação 1</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Simulação 2</h3>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/simulacao2.jpg" alt="Simulação 2">
+         </div>
+         <a href="index2.html" class="inline-btn">Acessar Simulação 2</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Simulação 3</h3>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/simulacao3.jpg" alt="Simulação 3">
+         </div>
+         <a href="simulacao2.html" class="inline-btn">Acessar Simulação 3</a>
+      </div>
+   </div>
+</section>
+
+
+
+<script>
+   // Ao carregar a página, verificar se existe uma imagem de perfil salva no localStorage
+   window.onload = function() {
+      var profileImage = localStorage.getItem('profileImage');
+      if (profileImage) {
+         document.getElementById('profile-img-teachers').src = profileImage;
+      }
+   };
+</script>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

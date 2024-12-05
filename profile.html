@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Perfil</title>
+
+   <!-- Link para o Font Awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- Link para o CSS personalizado -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<header class="header">
+   <section class="flex">
+      <a href="playlist.html" class="logo"></a><a href="profile.html" class="logo">
+         <div class="logo-container">
+            <img src="images/apple_logo.png" alt="Simulando" width="30" height="30">
+            <span>Simulando</span>
+         </div>
+      </a>
+     
+
+      
+
+      <div class="icons">
+         <div id="menu-btn" class="oculto"></div>
+         <div id="search-btn" class="oculto"></div>
+         <div id="user-btn" class="oculto"></div>
+         <div id="toggle-btn" class="oculto"></div>
+      </div>
+
+      <div class="profile">
+         <img src="images/pic-1.jpg" class="image" alt="" id="profile-img">
+         <h3 class="name">Shaikh Anas</h3>
+         <p class="role">Aluno</p>
+         <a href="profile.html" class="btn">Ver perfil</a>
+         <div class="flex-btn">
+            <a href="login.html" class="option-btn">Entrar</a>
+            <a href="register.html" class="option-btn">Cadastrar-se</a>
+         </div>
+      </div>
+   </section>
+</header>
+
+<!-- Sidebar -->
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="" id="profile-img-sidebar">
+      <h3 class="name">Shaikh Anas</h3>
+      <p class="role">Aluno</p>
+      <a href="profile.html" class="btn">Ver perfil</a>
+   </div>
+
+   <nav class="navbar">
+      <a href="index.html"><i class="fas fa-home"></i><span>Início</span></a>
+      <a href="about.html"><i class="fas fa-question"></i><span>Sobre</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Cursos</span></a>
+      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>Professores</span></a>
+      <a href="contact.html"><i class="fas fa-headset"></i><span>Contato</span></a>
+   </nav>
+</div>
+
+<section class="user-profile">
+   <h1 class="heading">Seu Perfil</h1>
+
+   <div class="info">
+      <div class="user">
+         <img src="images/pic-1.jpg" alt="" id="user-img">
+         <h3>João</h3>
+      
+      </div>
+
+      <div class="update-profile-form">
+         <h2>Atualize seus dados</h2>
+         <form action="update_profile.php" method="POST" class="update-form">
+            <p>Nova Foto de Perfil</p>
+            <input type="file" id="file-input" class="box" accept="image/*" onchange="previewImage()">
+            
+            <p>Novo E-mail <span>*</span></p>
+            <input type="email" name="email" placeholder="Digite seu novo e-mail" required class="box">
+            
+            <p>Nova Senha <span>*</span></p>
+            <input type="password" name="password" placeholder="Digite sua nova senha" required class="box">
+            
+            <p>Confirmar Senha <span>*</span></p>
+            <input type="password" name="confirm_password" placeholder="Confirme sua nova senha" required class="box">
+
+            <button type="submit" class="inline-btn">Atualizar Perfil</button>
+         </form>
+      </div>
+   </div>
+</section>
+
+<script>
+// Função para mostrar a imagem do perfil antes de enviar o formulário
+function previewImage() {
+   var file = document.getElementById('file-input').files[0];
+   var reader = new FileReader();
+   
+   reader.onloadend = function () {
+       document.getElementById('profile-img').src = reader.result;
+       document.getElementById('profile-img-sidebar').src = reader.result;
+       document.getElementById('user-img').src = reader.result;
+
+       // Salvar a imagem no localStorage
+       localStorage.setItem('profileImage', reader.result);
+   }
+   
+   if (file) {
+       reader.readAsDataURL(file);
+   }
+}
+
+// Ao atualizar o perfil
+document.querySelector('.update-profile-form').addEventListener('submit', function(e) {
+   e.preventDefault(); // Impede o envio do formulário
+
+   // Aqui você pode fazer a validação e enviar os dados se necessário
+   window.location.href = 'index.html'; 
+});
+</script>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

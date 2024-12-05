@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Dinâmica</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header fixo -->
+  <header class="header">
+    <section class="flex">
+      <a href="index.html" class="logo">
+        <div class="logo-container">
+          <img src="images/apple_logo.png" alt="Simulando" width="30" height="30">
+          <span>Simulando</span>
+        </div>
+      </a>
+      <div class="step-progress">
+        <div class="step active" id="step-1">
+            <span class="step-number">1</span>
+            <p>Teoria</p>
+        </div>
+        <div class="step active" id="step-2">
+            <span class="step-number">2</span>
+            <p>Simulação</p>
+        </div>
+        <div class="step active" id="step-3">
+            <span class="step-number">3</span>
+            <p>Teste</p>
+        </div>
+        <div class="step" id="step-4">
+            <span class="step-number">4</span>
+            <p>Feedback</p>
+        </div>
+      </div>
+
+      <div class="icons">
+        <div id="menu-btn" class="oculto"></div>
+        <div id="search-btn" class="oculto"></div>
+        <div id="user-btn" class="oculto"></div>
+        <div id="toggle-btn" class="oculto"></div>
+    </div>
+
+    </section>
+  </header>
+
+  <h1 class="heading"> Teste - Dinâmica</h1>
+
+  <form id="quizForm" class="info-box">
+    <!-- Perguntas dinâmicas -->
+    <div id="quizQuestions"></div>
+
+    <!-- Navegação -->
+    <div class="controls">
+      <button type="button" class="button" id="prevButton" disabled>Anterior</button>
+      <button type="button" class="button" id="nextButton">Próximo</button>
+    </div>
+
+    <button type="button" class="button" id="submitButton" style="display: none;">Finalizar Questionário</button>
+  </form>
+
+  <!-- Scripts -->
+  <script>
+    const questions = [
+      { question: "Qual é a primeira lei de Newton?", options: ["Lei da Inércia", "Lei da Força", "Lei da Ação e Reação"], correct: 0 },
+      { question: "Qual a fórmula da Segunda Lei de Newton?", options: ["F = m * a", "F = m / a", "F = a / m"], correct: 0 },
+      { question: "O que é força resultante?", options: ["Soma vetorial de todas as forças", "Apenas a maior força", "Soma das forças no sentido oposto"], correct: 0 },
+      { question: "O que é peso?", options: ["Força gravitacional sobre um objeto", "Massa de um objeto", "Inércia de um objeto"], correct: 0 },
+      { question: "Qual é a unidade de força no SI?", options: ["Newton (N)", "Joule (J)", "Pascal (Pa)"], correct: 0 },
+      { question: "O que diz a Terceira Lei de Newton?", options: ["Toda ação tem uma reação de mesma intensidade e direção oposta", "A força é proporcional à massa", "Todo corpo permanece em repouso"], correct: 0 },
+      { question: "Como se calcula o atrito?", options: ["F = μ * Fn", "F = Fn / μ", "F = μ + Fn"], correct: 0 },
+      { question: "Qual o significado de coeficiente de atrito?", options: ["Medida da resistência ao deslizamento", "Proporção da força peso", "Razão da aceleração"], correct: 0 },
+      { question: "Como se calcula a aceleração centrípeta?", options: ["ac = v² / r", "ac = v * r", "ac = r / v"], correct: 0 },
+      { question: "O que é força centrípeta?", options: ["Força que mantém um objeto em movimento circular", "Força que causa aceleração linear", "Força de resistência do ar"], correct: 0 },
+      { question: "Qual é a relação entre massa e peso?", options: ["Peso = Massa * Gravidade", "Peso = Massa / Gravidade", "Peso = Gravidade / Massa"], correct: 0 },
+      { question: "O que significa equilíbrio estático?", options: ["Quando a força resultante é zero", "Quando o objeto está acelerando", "Quando a velocidade é constante"], correct: 0 },
+      { question: "O que é força normal?", options: ["Força perpendicular à superfície", "Força paralela à superfície", "Força aplicada"], correct: 0 },
+      { question: "Como a gravidade influencia o movimento de queda livre?", options: ["Acelera todos os corpos na mesma proporção", "Depende da massa do objeto", "É constante para objetos leves"], correct: 0 },
+      { question: "O que é trabalho em física?", options: ["Produto da força pelo deslocamento na mesma direção", "Medida de energia potencial", "Proporção entre força e distância"], correct: 0 },
+    ];
+
+    let currentPage = 0;
+    const questionsPerPage = 5;
+
+    // Função para renderizar perguntas
+    const renderQuestions = () => {
+      const quizContainer = document.getElementById("quizQuestions");
+      quizContainer.innerHTML = ""; // Limpar perguntas existentes
+
+      const start = currentPage * questionsPerPage;
+      const end = Math.min(start + questionsPerPage, questions.length);
+
+      for (let i = start; i < end; i++) {
+        const q = questions[i];
+        const div = document.createElement("div");
+        div.className = "control-group";
+        div.innerHTML = `
+          <p>${i + 1}. ${q.question}</p>
+          ${q.options
+            .map(
+              (option, idx) =>
+                `<label><input type="radio" name="question${i}" value="${idx}"> ${option}</label><br>`
+            )
+            .join("")}
+        `;
+        quizContainer.appendChild(div);
+      }
+
+      // Atualizar botões
+      document.getElementById("prevButton").disabled = currentPage === 0;
+      document.getElementById("nextButton").style.display =
+        currentPage === Math.ceil(questions.length / questionsPerPage) - 1
+          ? "none"
+          : "inline-block";
+      document.getElementById("submitButton").style.display =
+        currentPage === Math.ceil(questions.length / questionsPerPage) - 1
+          ? "inline-block"
+          : "none";
+    };
+
+    // Botão de próximo
+    document.getElementById("nextButton").addEventListener("click", () => {
+      currentPage++;
+      renderQuestions();
+    });
+
+    // Botão de anterior
+    document.getElementById("prevButton").addEventListener("click", () => {
+      currentPage--;
+      renderQuestions();
+    });
+
+    // Submeter respostas
+    document.getElementById("submitButton").addEventListener("click", () => {
+      const userAnswers = [];
+      questions.forEach((_, index) => {
+        const selected = document.querySelector(`input[name="question${index}"]:checked`);
+        userAnswers.push(selected ? parseInt(selected.value) : null);
+      });
+
+      localStorage.setItem("quizResults", JSON.stringify(userAnswers));
+      window.location.href = "feedback.html";
+    });
+
+    // Inicializar
+    renderQuestions();
+  </script>
+</body>
+</html>

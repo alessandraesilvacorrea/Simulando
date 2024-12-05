@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Simulação de Movimento Uniformemente Variado</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      padding-bottom: 20px; /* Espaço extra no final */
+    }
+
+    .header {
+      background-color: #ffffff;
+      color: #fff;
+      padding: 20px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .heading {
+      text-align: center;
+      margin-top: 80px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .simulation-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 20px;
+      margin: 50px auto 20px;
+      max-width: 800px;
+    }
+
+    #simulation {
+      flex: 2;
+      background-color: #f0f0f0;
+    }
+
+    .controls {
+      flex: 1;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .control-group {
+      margin-bottom: 15px;
+    }
+
+    .control-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .control-group input {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .button:hover {
+      background-color: #218838;
+    }
+
+    .info-box {
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .next-content {
+      text-align: center;
+      margin-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <section class="flex">
+      <a href="index1.html" class="logo">
+        <div class="logo-container">
+          <img src="images/apple_logo.png" alt="Simulando" width="30" height="30">
+          <span>Simulando</span>
+        </div>
+      </a>
+
+    
+        <div class="step-progress">
+        <div class="step active" id="step-1">
+            <span class="step-number">1</span>
+            <p>Teoria</p>
+        </div>
+        <div class="step active" id="step-2">
+            <span class="step-number">2</span>
+            <p>Simulação</p>
+        </div>
+        <div class="step" id="step-3">
+            <span class="step-number">3</span>
+            <p>Teste</p>
+        </div>
+        <div class="step" id="step-4">
+            <span class="step-number">4</span>
+            <p>Feedback</p>
+        </div>
+    </div>
+    
+
+        <div class="icons">
+        <div id="menu-btn" class="oculto"></div>
+        <div id="search-btn" class="oculto"></div>
+        <div id="user-btn" class="oculto"></div>
+        <div id="toggle-btn" class="oculto"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+    </section>
+  </header>
+
+  <h1 class="heading">Simulação 2 - Movimento Uniformemente Variado</h1>
+
+  <div class="simulation-container">
+    <div id="simulation"></div>
+
+    <div class="controls">
+      <div class="control-group">
+        <label for="initialVelocity">Velocidade Inicial (m/s)</label>
+        <input type="number" id="initialVelocity" value="5" min="0">
+      </div>
+      <div class="control-group">
+        <label for="acceleration">Aceleração (m/s²)</label>
+        <input type="number" id="acceleration" value="2" step="0.1">
+      </div>
+      <div class="control-group">
+        <label for="time">Tempo (s)</label>
+        <input type="number" id="time" value="3" min="1">
+      </div>
+      <button class="button" id="startButton">Iniciar Movimento</button>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h2>Entenda o MRUV</h2>
+    <p>
+      O Movimento Retilíneo Uniformemente Variado (MRUV) ocorre quando há uma aceleração constante. A posição do objeto é calculada pela fórmula:
+    </p>
+    <p><strong>S = S₀ + V₀t + ½at²</strong></p>
+    <p>Explore os efeitos de diferentes valores de velocidade inicial, aceleração e tempo nesta simulação.</p>
+  </div>
+
+  <div class="next-content">
+    <a href="index1.html" class="btn">Anterior</a>
+    <a href="simulação2.html" class="btn">Próximo</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+  <script>
+    const { Engine, Render, World, Bodies, Body, Runner } = Matter;
+
+    const engine = Engine.create();
+    const render = Render.create({
+      element: document.getElementById('simulation'),
+      engine: engine,
+      options: {
+        width: 400,
+        height: 400,
+        wireframes: false,
+        background: '#f0f0f0',
+      },
+    });
+
+    Render.run(render);
+    const runner = Runner.create();
+    Runner.run(runner, engine);
+
+    const ground = Bodies.rectangle(200, 390, 400, 20, { isStatic: true, render: { fillStyle: '#555' } });
+    const ball = Bodies.circle(50, 350, 20, { restitution: 0.8, render: { fillStyle: 'blue' } });
+    World.add(engine.world, [ground, ball]);
+
+    const startMovement = () => {
+      const v0 = parseFloat(document.getElementById('initialVelocity').value);
+      const a = parseFloat(document.getElementById('acceleration').value);
+      const t = parseFloat(document.getElementById('time').value);
+
+      const displacement = v0 * t + 0.5 * a * t * t;
+      Body.setPosition(ball, { x: 50 + displacement, y: 350 });
+    };
+
+    document.getElementById('startButton').addEventListener('click', startMovement);
+  </script>
+</body>
+</html>

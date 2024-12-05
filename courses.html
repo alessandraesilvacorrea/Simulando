@@ -1,0 +1,133 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Video Playlist</title>
+
+   <!-- Font Awesome CDN link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- Custom CSS file link  -->
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <header class="header">
+      <section class="flex">
+         <a href="playlist.html" class="logo"></a>
+         <a href="index.html" class="logo">
+            <div class="logo-container">
+               <img src="images/apple_logo.png" alt="Simulando" width="30" height="30">
+               <span>Simulando</span>
+            </div>
+         </a>
+
+         <form action="search.html" method="post" class="search-form">
+            <input type="text" name="search_box" required placeholder="pesquisa..." maxlength="100">
+            <button type="submit" class="fas fa-search"></button>
+         </form>
+         
+         <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="user-btn" class="oculto"></div>
+            <div id="toggle-btn" class="oculto"></div>
+         </div>
+      </section>
+   </header>   
+
+   <!-- Sidebar -->
+   <div class="side-bar" style="overflow-y: auto; max-height: 100vh;">
+      <!-- Conteúdo da Sidebar (Perfil, Menu, etc.) -->
+      <div class="profile">
+         <img src="images/pic-1.jpg" class="image profile-img" alt="">
+         <h3 class="name">João</h3>
+         <a href="profile.html" class="btn">Editar Perfil</a>
+      </div>
+      <nav class="navbar">
+         <a href="index.html"><i class="fas fa-home"></i><span>Início</span></a>
+         <a href="about.html"><i class="fas fa-question"></i><span>Sobre</span></a>
+         <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Categorias</span></a>
+         <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>Minhas Simulações</span></a>
+         <a href="historicoavaliacaousuario.html"><i class="fas fa-history"></i><span>Histórico Avaliações</span></a>
+         <a href="login.html" class="option-btn">Sair</a>
+      </nav>
+   </div>
+   
+   <main>
+       <div class="container">
+         <div class="categories">
+            <a href="courses.html" class="category-button">Mecânica</a>
+            <a href="courses_term.html" class="category-button">Termodinâmica</a>
+            <a href="courses_eletro.html" class="category-button">Eletromagnetismo</a>
+            <a href="courses_optics.html" class="category-button">Óptica</a>
+         </div>
+         <div class="experiment-list">
+            <div class="experiment" id="cinematica">
+               <img src="images/movimento.jpg" alt="">
+               <div class="experiment-info">
+                  <h3>Cinemática</h3>
+                  <p>Espaço, tempo, velocidade, aceleração</p>
+               </div>
+               <div class="experiment-progress">
+                  <span class="progress-bar" style="width: 10%;"></span>
+                  <span class="progress-percentage">10%</span>
+                  <i class="fas fa-lock-open small-lock-icon"></i>
+                  <a href="playlist.html" class="continue-btn">Continuar</a>
+               </div>
+            </div>
+            <div class="experiment" id="dinamica">
+               <img src="images/dinamica.jpg" alt="">
+               <div class="experiment-info">
+                  <h3>Dinâmica</h3>
+                  <p>Leis de Newton, força de atrito, plano inclinado</p>
+               </div>
+               <div class="experiment-progress">
+                  <span class="progress-bar" style="width: 0%;"></span>
+                  <span class="progress-percentage">0%</span>
+                  <i class="fas fa-lock"></i>
+               </div>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Script para sincronizar a imagem de perfil -->
+   <script>
+      window.onload = function() {
+         const profileImage = localStorage.getItem('profileImage');
+         if (profileImage) {
+            document.querySelectorAll('.profile-img').forEach(img => {
+               img.src = profileImage;
+            });
+         }
+      };
+   </script>
+
+   <!-- Link para o JS -->
+   <script src="js/script.js"></script>
+
+   <style>
+      /* Estilo para o container de progresso */
+      .experiment-progress {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+      }
+      /* Estilo do botão de continuar */
+      .continue-btn {
+          padding: 4px 8px;
+          background-color: #f83513;
+          color: white;
+          text-decoration: none;
+          border-radius: 4px;
+          font-size: 12px;
+          margin-left: 8px;
+      }
+      .continue-btn:hover {
+          background-color: #a4a5a4;
+      }
+   </style>
+</body>
+</html>

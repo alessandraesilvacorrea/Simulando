@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>video playlist</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+   <header class="header">
+      <section class="flex">
+         <a href="playlist.html" class="logo"></a><a href="index.html" class="logo">
+            <div class="logo-container">
+               <img src="images/apple_logo.png" alt="Simulando" width="30" height="30">
+               <span>Simulando</span>
+            </div>
+         </a>
+   
+         <div class="step-progress">
+            <div class="step active" id="step-1">
+                <span class="step-number">1</span>
+                <p>Teoria</p>
+            </div>
+            <div class="step" id="step-2">
+                <span class="step-number">2</span>
+                <p>Simulação</p>
+            </div>
+            <div class="step" id="step-3">
+                <span class="step-number">3</span>
+                <p>Teste</p>
+            </div>
+            <div class="step" id="step-4">
+                <span class="step-number">4</span>
+                <p>Feedback</p>
+            </div>
+        </div>
+   
+         <div class="icons">
+            <div id="menu-btn" class="oculto"></div>
+            <div id="search-btn" class="oculto"></div>
+            <div id="user-btn" class="oculto"></div>
+            <div id="toggle-btn" class="oculto"></div>
+         </div>
+      </section>
+   </header>
+
+      
+
+<!-- Sidebar -->
+<div class="side-bar">
+   <!-- Conteúdo da Sidebar (Perfil, Menu, etc.) -->
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">João</h3>
+      <a href="profile.html" class="btn">Editar Perfil</a>
+   </div>
+   <nav class="navbar">
+      <a href="index.html"><i class="fas fa-home"></i><span>Início</span></a>
+      <a href="about.html"><i class="fas fa-question"></i><span>Sobre</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Categorias</span></a>
+      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>Meus Experimentos</span></a>
+      <a href="login.html" class="option-btn">Sair</a>
+   </nav>
+</div>
+   
+
+
+
+ <section class="playlist-details">
+   <h1 class="heading">Cinemática</h1>
+
+
+
+   <!-- Seção de Fórmulas Importantes -->
+   <div class="content">
+      <h2>Fórmulas Importantes</h2>
+
+      <!-- Grupo de Movimento -->
+      <div class="formula-group">
+         <h3>Movimento</h3>
+         <div class="formulas">
+            <div class="formula">
+               <img src="images/movimento_f1.jpg" alt="Fórmula de Movimento 1">
+               <p>Fórmula de Velocidade Média: <em>v = (s - s0) / t</em></p>
+            </div>
+            <div class="formula">
+               <img src="images/movimento_f2.jpg" alt="Fórmula de Movimento 2">
+               <p>Fórmula de Aceleração: <em>a = (v - v0) / t</em></p>
+            </div>
+            <div class="formula">
+               <img src="images/movimento_f3.jpg" alt="Fórmula de Movimento 3">
+               <p>Fórmula de Distância: <em>s = s0 + v0 * t + 1/2 * a * t²</em></p>
+            </div>
+         </div>
+      </div>
+
+      <!-- Grupo de MRU -->
+      <div class="formula-group">
+         <h3>MRU (Movimento Retilíneo Uniforme)</h3>
+         <div class="formulas">
+            <div class="formula">
+               <img src="images/mru_f1.jpg" alt="Fórmula de MRU 1">
+               <p>Fórmula de MRU: <em>s = s0 + v * t</em></p>
+            </div>
+            <div class="formula">
+               <img src="images/mru_f2.jpg" alt="Fórmula de MRU 2">
+               <p>Fórmula de Velocidade Constante: <em>v = Δs / Δt</em></p>
+            </div>
+            <div class="formula">
+               <img src="images/mru_f3.jpg" alt="Fórmula de MRU 3">
+               <p>Fórmula de Distância no MRU: <em>s = v * t</em></p>
+            </div>
+         </div>
+      </div>
+
+      <!-- Grupo de MRUV -->
+      <div class="formula-group">
+         <h3>MRUV (Movimento Retilíneo Uniformemente Variado)</h3>
+         <div class="formulas">
+            <div class="formula">
+               <img src="images/mruv_f1.jpg" alt="Fórmula de MRUV 1">
+               <p>Fórmula de Velocidade no MRUV: <em>v = v0 + a * t</em></p>
+            </div>
+            <div class="formula">
+               <img src="images/mruv_f2.jpg" alt="Fórmula de MRUV 2">
+               <p>Fórmula de Posição no MRUV: <em>s = s0 + v0 * t + 1/2 * a * t²</em></p>
+            </div>
+            <div class="formula">
+               <img src="images/mruv_f3.jpg" alt="Fórmula de MRUV 3">
+               <p>Fórmula de Velocidade Final: <em>v² = v0² + 2 * a * (s - s0)</em></p>
+            </div>
+         </div>
+      </div>
+
+     
+
+      <!-- Botão para próximo conteúdo -->
+      <div class="next-content">
+        <a href="playlist.html" class="btn">Anterior</a>
+         <a href="index1.html" class="btn">Próximo </a>
+      </div>
+   </div> 
+</section>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

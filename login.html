@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>login</title>
+
+   <!-- font awesome cdn link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file link -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<header class="header">
+   <section class="flex">
+      <a href="index.html" class="logo">
+         <div class="logo-container">
+            <img src="images/apple_logo.png" alt="Simulando" width="30" height="30">
+            <span>Simulando</span>
+         </div>
+      </a>
+
+      <div class="icons">
+         <div id="user-btn" class="oculto"></div>
+         <div id="toggle-btn" class="oculto"></div>
+      </div>
+
+      <div class="profile">
+         <img src="images/pic-1.jpg" class="image" alt="">
+         <h3 class="name">Usuário</h3>
+         <div class="flex-btn">
+            <a href="register.html" class="option-btn">Cadastrar</a>
+         </div>
+      </div>
+   </section>
+</header>   
+
+<section class="form-container">
+   <form action="index.html" method="post" enctype="multipart/form-data" onsubmit="return validateForm(event)">
+      <h3>Entrar</h3>
+      <p>Email <span>*</span></p>
+      <input type="email" id="email" name="email" placeholder="Entre com seu email" required maxlength="50" class="box">
+      <p>Senha <span>*</span></p>
+      <input type="password" id="password" name="pass" placeholder="Entre com sua senha" required maxlength="20" class="box">
+      
+      <button type="submit" class="btn">Entrar</button>
+      
+      <!-- Novo link para cadastro -->
+      <p class="register-link">Não possui cadastro? <a href="register.html">Cadastre-se</a></p>
+   </form>
+</section>
+
+<script>
+   function validateForm(event) {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (!email) {
+         alert('Por favor, preencha o campo de email.');
+         return false;
+      }
+
+      if (!password) {
+         alert('Por favor, preencha o campo de senha.');
+         return false;
+      }
+
+      return true;
+   }
+</script>
+
+</body>
+</html>

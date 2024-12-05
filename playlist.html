@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>video playlist</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+   <header class="header">
+      <section class="flex">
+         <a href="playlist.html" class="logo"></a><a href="index.html" class="logo">
+            <div class="logo-container">
+               <img src="images/apple_logo.png" alt="Simulando" width="30" height="30">
+               <span>Simulando</span>
+            </div>
+         </a>
+   
+         <div class="step-progress">
+            <div class="step active" id="step-1">
+                <span class="step-number">1</span>
+                <p>Teoria</p>
+            </div>
+            <div class="step" id="step-2">
+                <span class="step-number">2</span>
+                <p>Simulação</p>
+            </div>
+            <div class="step" id="step-3">
+                <span class="step-number">3</span>
+                <p>Teste</p>
+            </div>
+            <div class="step" id="step-4">
+                <span class="step-number">4</span>
+                <p>Feedback</p>
+            </div>
+        </div>
+   
+         <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="user-btn" class="oculto"></div>
+            <div id="toggle-btn" class="oculto"></div>
+         </div>
+      </section>
+   </header>
+
+   <!-- Sidebar -->
+   <div class="side-bar">
+      <!-- Conteúdo da Sidebar (Perfil, Menu, etc.) -->
+      <div class="profile">
+         <img src="images/pic-1.jpg" class="image" alt="">
+         <h3 class="name">João</h3>
+         <a href="profile.html" class="btn">Editar Perfil</a>
+      </div>
+      <nav class="navbar">
+         <a href="index.html"><i class="fas fa-home"></i><span>Início</span></a>
+         <a href="about.html"><i class="fas fa-question"></i><span>Sobre</span></a>
+         <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Categorias</span></a>
+         <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>Meus Experimentos</span></a>
+         <a href="login.html" class="option-btn">Sair</a>
+      </nav>
+   </div>
+
+   <!-- Playlist Section -->
+   <section class="playlist-details">
+      <h1 class="heading">Cinemática</h1>
+
+      <!-- Container para o vídeo -->
+      <div class="video-container">
+         <!-- O caminho para o vídeo 'video 1' pode ser ajustado conforme sua estrutura de diretórios -->
+         <video controls width="100%">
+            <source src="images/video 1.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+         </video>
+      </div>
+
+      <!-- Seção de texto com conteúdo teórico -->
+      <div class="content">
+         <div class="theory">
+            <h3>Sobre a Cinemática</h3>
+            <p>A cinemática é a área da física que estuda o movimento dos corpos sem considerar as causas desse movimento, ou seja, sem se preocupar com as forças que o geram. Focando-se apenas em descrever como os objetos se deslocam, ela envolve conceitos fundamentais como espaço, tempo, velocidade e aceleração, que são essenciais para a compreensão dos tipos de movimento.</p>
+
+            <h3>Movimento e Repouso</h3>
+            <p>No estudo da Física, entender o conceito de movimento é fundamental. Mas será que um objeto está sempre em movimento, ou isso depende de como e de onde olhamos? Vamos pensar em um exemplo: imagine que você está dentro de um ônibus, sentado em seu lugar, e o ônibus começa a se mover. Para um observador do lado de fora, na calçada, você parece estar em movimento junto com o ônibus. No entanto, para outro passageiro sentado ao seu lado, você está parado, em repouso. Como isso é possível?</p>
+
+            <p>Esse exemplo mostra a importância do "referencial" para entender movimento e repouso. O referencial é um ponto de vista a partir do qual observamos o movimento. No caso do ônibus, o referencial do observador é a calçada, enquanto o seu referencial é o próprio ônibus. Em relação ao ônibus, você está em repouso, mas em relação à calçada, você está em movimento. Logo, movimento e repouso não são absolutos, e sim relativos, ou seja, dependem do referencial escolhido.</p>
+
+            <p>Para definir esses conceitos, dizemos que um objeto está em <em>repouso</em> quando sua posição não muda em relação a um referencial. No caso do ônibus, você está em repouso em relação aos outros passageiros. Em contraste, um objeto está em <em>movimento</em> quando sua posição muda em relação ao referencial. Assim, em relação ao observador que está na calçada, você está em movimento, pois sua posição se altera conforme o ônibus se desloca.</p>
+
+            <p>Mas como descrever o movimento de maneira mais precisa? Para isso, usamos grandezas físicas como a 'posição', a 'velocidade' e a 'aceleração'. A posição indica onde o objeto está em um determinado momento, enquanto a velocidade nos informa com que rapidez ele se desloca. A aceleração, por sua vez, nos ajuda a entender se a velocidade está mudando com o tempo.</p>
+         </div>
+
+         <!-- Botão para próximo conteúdo -->
+         <div class="next-content">
+            <a href="index.html" class="btn">Anterior</a>
+            <a href="playlist2.html" class="btn">Próximo</a>
+         </div>
+      </div>
+   </section>
+
+   <!-- Custom JS file -->
+   <script src="js/script.js"></script>
+
+</body>
+</html>
